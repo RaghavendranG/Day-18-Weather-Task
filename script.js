@@ -1,6 +1,8 @@
 document.body.style.backgroundImage =
   "linear-gradient(to right,#80FF72,#7EE8FA)";
 
+const apiID = "1acb6827be427b8f24e88a8b1aa0fa3b";
+
 fetch("https://restcountries.com/v3.1/all")
   .then((response) => response.json())
   .then((data) => {
@@ -13,14 +15,13 @@ fetch("https://restcountries.com/v3.1/all")
         region: Element.region,
         CCode: Element.cca2,
         lat: Element.latlng[0],
-        long: Element.latlng[1],
-        apiID: "1acb6827be427b8f24e88a8b1aa0fa3b",
+        long: Element.latlng[1]
       };
       Countries(CountryObj);
     });
   });
 
-function Countries({ flag, capital, name, region, CCode, lat, long, apiID }) {
+function Countries({ flag, capital, name, region, CCode, lat, long }) {
   document.body.innerHTML += `
   <div class="align"><div class="card" style="width: 15rem;">
   <div class="card-header">
@@ -36,74 +37,47 @@ function Countries({ flag, capital, name, region, CCode, lat, long, apiID }) {
   <li class="list-group-item"> <span>Code :</span> ${CCode}</li>
 </ul>
 <div class="card-body text-center">
-<button onclick = "weatherModal(lat, long, apiID)" class="btn btn-primary" id="mpopupLink">Click for Weather</button>
+<button class="btn btn-primary" id="mpopupLink" onclick="weatherData('${lat}','${long}','${apiID}')">Click for Weather</button>
 </div>
 </div>
-</div>`;
-
-
-return lat,long,apiID;
-  // Select trigger link
-  // var mpLink = document.getElementById("mpopupLink");
-
-  // mpLink.onclick = weatherModal(lat, long, apiID);
+</div>` ;
 }
 
-function weatherModal(latitude, longitude, api) {
+function weatherData(latitude, longitude, apikey) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`
   )
     .then((response) => response.json())
     .then((data) => {
-      weatherType = data.weather[0].main;
-      weatherDesc = data.weather[0].description;
+      weatherInfo = data.weather[0].main;
+      weatherDescription = data.weather[0].description;
       weatherIcon = data.weather[0].icon;
-      weatherTemp = data.main.temp;
-      weatherTemp = weatherTemp - 273.15;
-      weatherTemp = weatherTemp.toFixed(2);
+      weatherTemperature = data.main.temp;
+      weatherTemperature = weatherTemperature - 273.15;
+      weatherTemperature = `${weatherTemperature.toFixed(2)}&#8451`;
       weatherPlace = data.name;
-      document.getElementById("mpopupLink").innerHTML = `${weatherTemp}&#8451, ${weatherDesc}`;
-      // document.getElementById("type").innerHTML = weatherType;
-      // document.getElementById(
-      //   "image"
-      // ).src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-      // document.getElementById("temp").innerHTML = `${weatherTemp}&#8451;`;
-      // document.getElementById("place").innerHTML = weatherPlace;
-      // document.getElementById("desc").innerHTML = weatherDesc;
-      // weatherModal(weatherType,weatherDesc,weatherIcon,weatherTemp,weatherPlace);
+      displayWeather(weatherInfo, weatherDescription, weatherTemperature, weatherIcon,weatherPlace);
     })
-    .catch((err) => console.error(err));
+    .catch((error) => console.error(error));
+} 
+
+function displayWeather(main,desc,temp,icon,place){
+  var mpopup = document.getElementById('mpopupBox');
+  mpopup.style.display = "block";
+  document.getElementById("type").innerHTML = `<span>Weather type :</span> ${main}, ${desc}`;
+  document.getElementById("image").src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  document.getElementById("place").innerHTML = place;
+  document.getElementById("temp").innerHTML = temp;
+  
+  var close = document.getElementsByClassName("close")[0];
+ 
+  close.onclick = function() {
+      mpopup.style.display = "none";
+  };
+  
+  window.onclick = function(event) {
+      if (event.target == mpopup) {
+          mpopup.style.display = "none";
+      }
+  };
 }
-
-// function weatherModal(main,desc,icon,temp,name) {
-//   mpopup.style.display = "block";
-//   document.getElementById("type").innerHTML = main
-//   document.getElementById("image").src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-//   document.getElementById("temp").innerHTML = `${temp}&#8451;`;
-//   document.getElementById("place").innerHTML = name;
-//   document.getElementById("desc").innerHTML = desc;
-// };
-
-// var mpopup = document.getElementById("mpopupBox");
-
-// var close = document.getElementsByClassName("close")[0];
-
-// // Close modal once close element is clicked
-// close.onclick = function () {
-//   mpopup.style.display = "none";
-// };
-
-// // Close modal when user clicks outside of the modal box
-// window.onclick = function (event) {
-//   if (event.target == mpopup) {
-//     mpopup.style.display = "none";
-//   }
-// };
-
-/* <a class="btn btn-primary" href="https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiID}" role="button">Weather</a> */
-
-// id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03d'
-
-// apikey(rocket) - "ec9cf35d0234d760be56157921c89c6a"
-
-// celcius &#8451;

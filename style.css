@@ -96,6 +96,8 @@ span {
     border-bottom: 1px solid #e9ecef;
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
+    display: grid;
+    justify-content: center;
 }
 .modal-header h2{
     font-size: 1.25rem;
@@ -117,6 +119,23 @@ span {
     /* text-align: center; */
 }
 
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+}  
+
+.flex-child:first-child {
+  margin-right: 20px;
+} 
+
+.img{
+  align-self: center;
+  width: 50px;
+  height: 6rem;
+}
 
 /* .close {
     color: #888;

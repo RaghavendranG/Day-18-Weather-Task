@@ -32,16 +32,17 @@
     <div id="mpopupBox" class="mpopup">
       <div class="modal-content">
           <div class="modal-header">
-              <h2 id="type"><span>Weather Type :</span> ${main}</h2>
+              <h2 id="type"></h2>
           </div>
-          <div class="modal-body">
-          <div class="img">
+          <div class="modal-body flex-container">
+          <div class="img flex-child">
               <img id="image" src="" alt="weather icon"/>
               </div>
-              <div class="content">
-              <h2 id="temp"></h2>
-              <p id="place"><span>Place : </span>${name}</p>
-              <p id="desc"><span>Description : </span>${desc}</p>
+              <div class="content flex-child">
+              <h3 id="temp"></h3>
+              <p><b>in</b></p>
+              <h3 id="place"></h3>
+              <!-- <p id="desc"><span>Description : </span>${desc}</p> -->
               </div>
           </div>
           <div class="modal-footer">
