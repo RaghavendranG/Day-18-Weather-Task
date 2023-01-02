@@ -32,7 +32,7 @@ function Countries({ flag, capital, name, region, CCode, lat, long }) {
   <div class="col col-lg-4 col-md-3 col-sm-12">
   <div class="card">
   <div class="card-header">
-  <h4 class="card-title">${name}</h4>
+  <h5 class="card-title">${name}</h5>
 </div>
 <img class="card-img-top" src="${flag}" alt="${name}">
 <div class="card-body">
