@@ -53,6 +53,7 @@ function weatherData(latitude, longitude, apikey) {
       weatherDescription = data.weather[0].description;
       weatherIcon = data.weather[0].icon;
       weatherTemperature = data.main.temp;
+      //converting kelvin to celsius
       weatherTemperature = weatherTemperature - 273.15;
       weatherTemperature = `${weatherTemperature.toFixed(2)}&#8451`;
       weatherPlace = data.name;

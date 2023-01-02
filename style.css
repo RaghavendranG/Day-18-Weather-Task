@@ -54,69 +54,66 @@ span {
   text-align: center;
 }
 
-.card-header >
-.card-title {
-    background: -webkit-linear-gradient( #80ff72, #7ee8fa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.card-header > .card-title {
+  background: -webkit-linear-gradient(#80ff72, #7ee8fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .mpopup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .modal-content {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    background-color: #fff;
-    margin: auto;
-    padding: 0;
-    width: 350px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    border-radius: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius: 0.3rem;
 }
 .modal-header {
-    padding: 2px 12px;
-    background-color: #ffffff;
-    color: #333;
-    border-bottom: 1px solid #e9ecef;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
-    display: grid;
-    justify-content: center;
+  padding: 2px 12px;
+  background-color: #ffffff;
+  color: #333;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  display: grid;
+  justify-content: center;
 }
-.modal-header h2{
-    font-size: 1.25rem;
-    margin-top: 14px;
-    margin-bottom: 14px;
+.modal-header h2 {
+  font-size: 1.25rem;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 .modal-body {
-    padding: 2px 12px;
+  padding: 2px 12px;
 }
 .modal-footer {
-    display: grid;
-    justify-content: center;
-    padding: 1rem;
-    /* background-color: black; */
-    /* color: rgb(51, 51, 51); */
-    border-top: 1px solid #e9ecef;
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-    /* text-align: center; */
+  display: grid;
+  justify-content: center;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  
 }
 
 .flex-container {
@@ -125,38 +122,44 @@ span {
 
 .flex-child {
   flex: 1;
-}  
+}
 
 .flex-child:first-child {
   margin-right: 20px;
-} 
+}
 
-.img{
+.img {
   align-self: center;
   width: 50px;
   height: 6rem;
 }
 
-/* .close {
-    color: #888;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-} */
-
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* add animation effects */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
