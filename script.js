@@ -1,5 +1,11 @@
 document.body.style.backgroundImage =
   "linear-gradient(to right,#80FF72,#7EE8FA)";
+var container = document.createElement("div");
+container.setAttribute("class", "container px-4");
+
+var row = document.createElement("div");
+row.setAttribute("class", "row justify-content-between g-4");
+container.append(row);
 
 const apiID = "1acb6827be427b8f24e88a8b1aa0fa3b";
 
@@ -22,17 +28,18 @@ fetch("https://restcountries.com/v3.1/all")
   });
 
 function Countries({ flag, capital, name, region, CCode, lat, long }) {
-  document.body.innerHTML += `
-  <div class="align"><div class="card" style="width: 15rem;">
+  row.innerHTML += `
+  <div class="col col-lg-4 col-md-3 col-sm-12">
+  <div class="card">
   <div class="card-header">
-  <h5 class="card-title">Country Flag</h5>
+  <h4 class="card-title">${name}</h4>
 </div>
 <img class="card-img-top" src="${flag}" alt="${name}">
 <div class="card-body">
-  <h5 class="card-title">${name}</h5>
+  <h5 class="card-title">Country Flag</h5>
 </div>
 <ul class="list-group list-group-flush">
-<li class="list-group-item"> <span>Capital :</span> ${capital}</li>
+  <li class="list-group-item"> <span>Capital :</span> ${capital}</li>
   <li class="list-group-item"> <span>Region :</span> ${region}</li>
   <li class="list-group-item"> <span>Code :</span> ${CCode}</li>
 </ul>
@@ -40,7 +47,10 @@ function Countries({ flag, capital, name, region, CCode, lat, long }) {
 <button class="btn btn-primary" id="mpopupLink" onclick="weatherData('${lat}','${long}','${apiID}')">Click for Weather</button>
 </div>
 </div>
-</div>` ;
+</div>
+` ;
+
+document.body.append(container);
 }
 
 function weatherData(latitude, longitude, apikey) {

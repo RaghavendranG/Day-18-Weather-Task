@@ -1,13 +1,10 @@
-body {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: 2rem;
-  padding: 1rem;
+body{
+  padding: 2rem;
 }
-.align {
-  display: grid;
-  justify-content: center;
+.container{
+padding: 8px;
+border: 1px solid whitesmoke;
+/* box-shadow: 0 0 10px 5px; */
 }
 
 .card {
@@ -33,6 +30,7 @@ body {
 .list-group-item {
   background-image: linear-gradient(to right, #80ff72, #7ee8fa);
   border: 2px solid aqua;
+  font-size: larger;
 }
 h5 {
   text-align: center;
