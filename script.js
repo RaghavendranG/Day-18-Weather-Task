@@ -4,7 +4,7 @@ var container = document.createElement("div");
 container.setAttribute("class", "container px-4");
 
 var row = document.createElement("div");
-row.setAttribute("class", "row justify-content-between g-4");
+row.setAttribute("class", "row");
 container.append(row);
 
 const apiID = "1acb6827be427b8f24e88a8b1aa0fa3b";
@@ -29,22 +29,25 @@ fetch("https://restcountries.com/v3.1/all")
 
 function Countries({ flag, capital, name, region, CCode, lat, long }) {
   row.innerHTML += `
-  <div class="col col-lg-4 col-md-3 col-sm-12">
-  <div class="card">
+  <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-3">
+  <div class="card h-100">
   <div class="card-header">
   <h5 class="card-title">${name}</h5>
 </div>
 <img class="card-img-top" src="${flag}" alt="${name}">
 <div class="card-body">
-  <h5 class="card-title">Country Flag</h5>
-</div>
+<div class="card-text">
+<h5 class="card-title">Country Flag</h5>
+
 <ul class="list-group list-group-flush">
   <li class="list-group-item"> <span>Capital :</span> ${capital}</li>
   <li class="list-group-item"> <span>Region :</span> ${region}</li>
   <li class="list-group-item"> <span>Code :</span> ${CCode}</li>
 </ul>
-<div class="card-body text-center">
+</div>
+<div class="button text-center">
 <button class="btn btn-primary" id="mpopupLink" onclick="weatherData('${lat}','${long}','${apiID}')">Click for Weather</button>
+</div>
 </div>
 </div>
 </div>
